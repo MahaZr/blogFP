@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
-mongoose.connect('mongodb://localhost:27017/blogDb')
+mongoose.connect('mongodb://localhost:27017/blogDb',{ useNewUrlParser: true })
 const app = express()
 
 app.use(bodyparser.json())
@@ -24,6 +24,7 @@ const suprimerArt = require ('./server/routes/article/suprimerArt')
 const updateArt = require ('./server/routes/article/updateArt')
 
 app.use('/auth', auth)
+app.use('/home',home)
 
 
 app.listen(3001, (err)=>{

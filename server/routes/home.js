@@ -1,6 +1,6 @@
 const router=require('express').Router();
 
-router.get('/home',async(req,res)=>{
-    res.send()
+router.get('/home',(req,res)=>{
+    res.send({message: 'welcome to home'});
 })
-module.exports = router ;
+module.exports = router;
