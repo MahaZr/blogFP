@@ -13,8 +13,11 @@ const register=require('./server/routes/register')
 const ajouterAdmin=require('./server/routes/dashboard/Admin/ajouterAdmin')
 const effacerUser=require('./server/routes/dashboard/Admin/effacerUser')
 const listerUser=require('./server/routes/dashboard/Admin/listerUser')
+const ajouterArt=require('./server/routes/article/ajouterArt')
 app.use('/auth', auth)
 app.use('/home',home)
+app.use('/article',ajouterArt)
+
 
 app.listen(3001, (err)=>{
     if(err)throw err;
