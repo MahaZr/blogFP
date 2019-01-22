@@ -7,6 +7,7 @@ const app = express()
 app.use(bodyparser.json())
 
 const auth = require('./server/routes/auth')
+
 app.use('/auth', auth)
 
 app.listen(3001, (err)=>{
