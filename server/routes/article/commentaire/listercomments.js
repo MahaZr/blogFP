@@ -1,5 +1,5 @@
 const router=require('express').Router();
 
-router.post('/artice/affichecomment/:idArt/:idUser', async (req,res)=>{
+router.post('/artice/commentaire/listercomment/:idArt/:idUser', async (req,res)=>{
     res.send()
 })
