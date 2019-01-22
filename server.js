@@ -25,6 +25,8 @@ const updateArt = require ('./server/routes/article/updateArt')
 
 app.use('/auth', auth)
 app.use('/home',home)
+app.use('/article',ajouterArt)
+
 
 
 app.listen(3001, (err)=>{
