@@ -27,6 +27,7 @@ app.use('/auth',login )
 app.use('/home',home)
 app.use('/article',ajouterArt)
 app.use('/register',register)
+app.use('/article',ajouterComment)
 
 
 

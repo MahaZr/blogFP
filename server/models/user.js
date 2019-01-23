@@ -7,6 +7,6 @@ const user = new mongoose.Schema({
     password: { type: String, required: true, minlength: 5 }
 });
 
-const userModel = mongoose.model('git',user);
+const userModel = mongoose.model('users',user);
 
 module.exports = userModel;

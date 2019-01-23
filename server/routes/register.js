@@ -15,17 +15,17 @@ const userModel = mongoose.model('users', user);*/
 
 
 router.post('/register',function (req,res)  {
-    var firstname = req.body.firstname;
+    var name = req.body.name;
     var lastname = req.body.lastname;
     var email = req.body.email;
     var password = req.body.password;
 
     var newuser = new Users();
-    newuser.firstname = firstname;
+    newuser.name = name;
     newuser.lastname = lastname;
     newuser.email = email;
     newuser.password = password;
-    newuser.save(function(err, savedUser){
+    newuser.save(function(err, savedComment){
         if (err) {
             console.log(err);
             return res.status(500).send();
