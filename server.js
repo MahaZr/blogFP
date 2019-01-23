@@ -23,7 +23,7 @@ const listerArticles = require ('./server/routes/article/listerArticles')
 const suprimerArt = require ('./server/routes/article/suprimerArt')
 const updateArt = require ('./server/routes/article/updateArt')
 
-app.use('/auth', auth)
+app.use('/auth',login )
 app.use('/home',home)
 app.use('/article',ajouterArt)
 app.use('/register',register)
