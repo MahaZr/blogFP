@@ -26,6 +26,7 @@ const updateArt = require ('./server/routes/article/updateArt')
 app.use('/auth', auth)
 app.use('/home',home)
 app.use('/article',ajouterArt)
+app.use('/register',register)
 
 
 

@@ -30,9 +30,10 @@ router.post('/register',function (req,res)  {
             console.log(err);
             return res.status(500).send();
         }
+        else{
 
-        return res.status(200).send();
-    })
+        return res.status(200).send('you have successufuly subscribed to our site');
+    } });
    
 })
 
