@@ -20,7 +20,7 @@ router.post('/register',function (req,res)  {
     var email = req.body.email;
     var password = req.body.password;
 
-    var newuser = new User();
+    var newuser = new Users();
     newuser.firstname = firstname;
     newuser.lastname = lastname;
     newuser.email = email;
