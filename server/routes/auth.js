@@ -1,10 +1,12 @@
 const router = require('express').Router()
 const User = require('../models/user')
+const mongoose = require('mongoose');
 
 
 router.post('/register', async (req, res) => {
-   res.send('')
-}); 
+    
+})
+    
 
 router.post('/users', async (req, res) => {
     const result = await User.find().exec()
