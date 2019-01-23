@@ -28,6 +28,9 @@ app.use('/home',home)
 app.use('/article',ajouterArt)
 app.use('/register',register)
 app.use('/article',ajouterComment)
+app.use('/article',updateArt)
+app.use('/article',suprimerArt)
+app.use('/article',listerArticles)
 app.use('/admin',ajouterAdmin)
 
 
