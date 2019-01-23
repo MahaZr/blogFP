@@ -28,13 +28,10 @@ app.use('/home',home)
 app.use('/article',ajouterArt)
 app.use('/register',register)
 app.use('/article',ajouterComment)
-<<<<<<< HEAD
 app.use('/article',updateArt)
 app.use('/article',suprimerArt)
 app.use('/article',listerArticles)
-=======
 app.use('/admin',ajouterAdmin)
->>>>>>> 1970bc83acdebc7028e7cd0f1563f013c8cfe662
 
 
 
