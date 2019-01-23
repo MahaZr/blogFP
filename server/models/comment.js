@@ -3,10 +3,10 @@ const mongoose=require('mongoose');
 const commentaire=new mongoose.Schema({
     IdUser : Number,
     IDArticle : Number,
-    date:Date,
+    date:{type: Date, default:Date.now()},
     corps:String
     
 });
-const userModel = mongoose.model('git',comment);
+const commentModel = mongoose.model('comments',commentaire);
 
-module.exports = userModel;
+module.exports = commentModel;
