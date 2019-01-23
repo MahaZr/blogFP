@@ -1,5 +1,5 @@
 {
-  "name": "appBlog",
+  "name": "appblog",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -12,6 +12,6 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
-    "mongoose": "^5.4.5"
+    "mongoose": "^5.4.6"
   }
 }
