@@ -32,14 +32,11 @@ app.use('/article',updateArt)
 app.use('/article',suprimerArt)
 app.use('/article',listerArticles)
 app.use('/admin',ajouterAdmin)
-<<<<<<< HEAD
 app.use('/article',consulterArt)
-=======
 app.use('/User',effacerUser)
 app.use('/article',updateComment)
 app.use('/article',deleteComment)
 app.use('/article',listerComment)
->>>>>>> 373b82dd45ff27e1a539e9120e7e77131a6b8eb4
 
 
 
