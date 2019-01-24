@@ -34,13 +34,10 @@ app.use('/article',listerArticles)
 app.use('/admin',ajouterAdmin)
 app.use('/article',consulterArt)
 app.use('/User',effacerUser)
-<<<<<<< HEAD
 app.use('/dash',listerUser)
-=======
 app.use('/article',updateComment)
 app.use('/article',deleteComment)
 app.use('/article',listerComment)
->>>>>>> 226a1e352029472222019eb28115a65ddb012119
 
 
 
