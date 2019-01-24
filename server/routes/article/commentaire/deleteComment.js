@@ -1,6 +1,27 @@
 const router=require('express').Router();
+const comments = require('../../../models/comment');
+const users = require('../../../models/user');
 
-router.post('/artice/commentaire/deletecomment/:idArt/:idUser', async (req,res)=>{
-    res.send()
+router.get('/deletecomment/:idcomment/:idUser', async (req,res)=>{
+   try{
+       var user = await users.findById(req.params.idUser).exec();
+   } catch (error) {
+       res.send('bad id user');
+   }
+   try{
+       var coment = await comments.findById(req.params.idcomment)
+   } catch(error){
+       res.send('bad id comment');
+
+   }
+
+   if(user.admin || (coment.IdUser == req.params.idUser)){
+
+    const resu = await comments.deleteOne({_id : req.params.idcomment});
+    res.send(resu);
+
+   } else {
+       res.send('you are not allowd to delete this comment');
+   }
 })
 module.exports = router;

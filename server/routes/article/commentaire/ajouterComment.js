@@ -4,8 +4,8 @@ const Comment = require('../../../models/comment');
 router.post('/ajoutComment/:idUser/:idArt', async (req,res)=>{
 
 var  newcoment = new Comment();
-newcoment.IdUser = parseInt( req.params.idUser);
-newcoment.IDArticle = parseInt(req.params.idArt);
+newcoment.IdUser = req.params.idUser;
+newcoment.IDArticle = req.params.idArt;
 newcoment.corps = req.body.corps;
 
 newcoment.save(function(err, savedUser){
@@ -16,6 +16,6 @@ newcoment.save(function(err, savedUser){
     else{
 
     return res.status(200).send('you have successufuly add a new comment');
-} });    
+} });     
 })
 module.exports = router ;

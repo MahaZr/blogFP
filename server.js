@@ -33,6 +33,9 @@ app.use('/article',suprimerArt)
 app.use('/article',listerArticles)
 app.use('/admin',ajouterAdmin)
 app.use('/User',effacerUser)
+app.use('/article',updateComment)
+app.use('/article',deleteComment)
+app.use('/article',listerComment)
 
 
 

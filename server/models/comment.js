@@ -1,8 +1,8 @@
 const mongoose=require('mongoose');
 
 const commentaire=new mongoose.Schema({
-    IdUser : Number,
-    IDArticle : Number,
+    IdUser : String,
+    IDArticle : String,
     date:{type: Date, default:Date.now()},
     corps:String
     
