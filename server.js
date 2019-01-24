@@ -33,6 +33,7 @@ app.use('/article',suprimerArt)
 app.use('/article',listerArticles)
 app.use('/admin',ajouterAdmin)
 app.use('/User',effacerUser)
+app.use('/dash',listerUser)
 
 
 
