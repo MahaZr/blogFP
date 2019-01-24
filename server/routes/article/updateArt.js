@@ -7,10 +7,21 @@ router.post('/updateArt/:idUser/:idArt', async (req, res) => {
     var idArt = req.params.idArt;
     var idUser = req.params.idUser;
     var modif = req.body;
-    const art = await article.findById( idArt ).exec();
-    console.log(art);
-    const userr = await user.findById( idUser ).exec();
-    console.log(userr);
+    try {
+        const art = await article.findById( idArt ).exec();
+        console.log(art);
+    } catch (error) {
+        res.send('erreur id article');
+    }
+    
+    try {
+        const userr = await user.findById( idUser ).exec();
+        console.log(userr);
+    } catch (error) {
+        res.send('erreur id user');
+    }
+    
+    
 
     if (art.auteur === userr.name) {
 
