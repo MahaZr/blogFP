@@ -1,6 +1,10 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
+
+
+
+
 mongoose.connect('mongodb://localhost:27017/blogDb',{ useNewUrlParser: true })
 const app = express()
 
@@ -22,6 +26,8 @@ const consulterArt = require('./server/routes/article/consulterArt')
 const listerArticles = require ('./server/routes/article/listerArticles')
 const suprimerArt = require ('./server/routes/article/suprimerArt')
 const updateArt = require ('./server/routes/article/updateArt')
+const swagger = require('./server/routes/swagger')
+
 
 app.use('/auth',login )
 app.use('/home',home)
@@ -38,6 +44,10 @@ app.use('/dash',listerUser)
 app.use('/article',updateComment)
 app.use('/article',deleteComment)
 app.use('/article',listerComment)
+app.use('/api-docs',swagger)
+
+
+
 
 
 
