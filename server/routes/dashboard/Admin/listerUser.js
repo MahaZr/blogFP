@@ -21,7 +21,7 @@ const Users = require('../../../models/user');
  *       
  *     responses:
  *       200:
- *         description: 
+ *         description: les liste des utilisateur inscrit
  */
 router.get('/listerUser/:idUser', async (req, res) => {
     try {
