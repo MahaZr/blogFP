@@ -4,7 +4,7 @@ const article = require('../models/article');
 /**
  * @swagger
  *
- * /home/home:
+ * /home/home/{auth}:
  *   get:
  *     description: liste article by author
  *     produces:
