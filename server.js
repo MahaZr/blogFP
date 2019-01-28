@@ -1,6 +1,8 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
+mongoose.connect('mongodb://localhost:27017/blogDb',{ useNewUrlParser: true })
+const app = express()
 ///////////////////////////////////////////////////
 //morgan
 var fs = require('fs')
@@ -17,8 +19,7 @@ app.use(morgan('combined', { stream: accessLogStream }))
 
 
 
-mongoose.connect('mongodb://localhost:27017/blogDb',{ useNewUrlParser: true })
-const app = express()
+
 
 app.use(bodyparser.json())
 
