@@ -1,3 +1,7 @@
 # dependencies 
 /node_modules
+<<<<<<< HEAD
 access.log
+=======
+access.log
+>>>>>>> a812b65bf8f205a9e45f3cf933c8364926473af4
