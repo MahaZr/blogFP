@@ -13,7 +13,7 @@ router.post('/register',function (req,res)  {
     newuser.name = name;
     newuser.lastname = lastname;
     newuser.email = email;
-    newuser.password = password;
+    newuser.password = newuser.generatehash(password)  ;
     newuser.save(function(err, savedComment){
         if (err) {
             console.log(err);
