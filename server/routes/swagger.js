@@ -24,7 +24,7 @@ let options =
         ],
         schemes: ['http'],
     apis:['./server/routes/home.js',
-'./server/routes/dashboard/Admin/listerUser.js']
+'./server/routes/dashboard/Admin/listerUser.js','./server/routes/login.js']
 };
 const swaggerSpec = swaggerJSDoc(options);
 router.use('/', swaggerUi.serve, swaggerUi.setup(swaggerSpec));

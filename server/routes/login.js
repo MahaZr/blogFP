@@ -1,19 +1,44 @@
 const router=require('express').Router();
 const user = require('../models/user');
 
+/**
+ * @swagger
+ *
+ * /login/login/:
+ *   post:
+ *     description: liste article by author
+ *     produces:
+ *       - application/json
+ *     parameters:
+ *       - name: email
+ *         description: em  .
+ *         in: body
+ *         required: true
+ *         type: string
+ *       - name: password
+ *         description: pwd.
+ *         in: body
+ *         required: true
+ *         type: string
+ *       
+ *     responses:
+ *       200:
+ *         description: 
+ */
 
 router.post('/login', async (req,res)=>{
-
-    const result = await  user.findOne({ "email": req.body.email }).exec()
+    
+    const result = await  user.findOne({ "email": req.body.email }).exec();
     if(result!= null ){
-    if (result.password === req.body.password) {
-        res.send(result);
+    if (result.validPassword(req.body.password)) {
+        res.send({message : "welcome"});
+      
     } else {
-        res.status(200).send('bad pass');
+        res.send({message : 'bad pass'});
     }
 }
 else {
-    res.status(200).send('you are not registred, please inscribe to our site');
+    res.send({message : 'you are not registred, please inscribe to our site'});
 }
 })
 module.exports = router;

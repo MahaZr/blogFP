@@ -13,8 +13,13 @@ user.methods.generatehash=function(password){
     return bcrypt.hashSync(password,bcrypt.genSaltSync(9));
 }
 
-user.methods.validPassxord=function(password){
-    return bcrypt.compareSync(password,this.password);
+user.methods.validPassword=function(password){
+    try {
+        return bcrypt.compareSync(password,this.password);
+    } catch (error) {
+        return false;
+    }
+   
     
 }
 
