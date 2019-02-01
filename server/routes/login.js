@@ -1,11 +1,11 @@
 const router=require('express').Router();
 const user = require('../models/user');
-const jwt = require('jsonwebtoken').authenticate;
+const jwt = require('jsonwebtoken');
 
 /**
  * @swagger
  *
- * /login/login/:
+ * /auth/login/:
  *   post:
  *     description: liste article by author
  *     produces:
@@ -37,14 +37,14 @@ router.post('/login', async (req,res)=>{
     if (result.validPassword(req.body.password)) {
 
         jwt.sign({user : result}, 'secretKey',(err,token)=>{
-            res.send({token : token});
+            res.send({token : token, message : "welcome"});
         });
-        res.send({message : "welcome"});
+        
       
     } else {
         res.send({message : 'bad pass'});
     }
-}
+} 
 else {
     res.send({message : 'you are not registred, please inscribe to our site'});
 }

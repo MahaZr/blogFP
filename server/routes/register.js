@@ -21,7 +21,7 @@ router.post('/register',function (req,res)  {
         }
         else{
 
-        return res.status(200).send('you have successufuly subscribed to our site');
+        return res.status(200).send({message : 'you have successufuly subscribed to our site'});
     } });
    
 })
