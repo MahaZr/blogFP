@@ -2,7 +2,7 @@ const jwt = require('jsonwebtoken');
 
 module.exports.verifyToken = function(req,res,next){
 
-    const bearerHeader = req.headers['authorization'];
+    const bearerHeader = req.headers.authorization;
 
     if(typeof bearerHeader != 'undefined'){
 
@@ -10,10 +10,10 @@ module.exports.verifyToken = function(req,res,next){
         var token = bearer[1];
         jwt.verify(token,'secretKey',(err,decoded)=>{
             if(err){
-                res.sendStatus(403);
+                res.send({message: "badtoken"});
             }
             else{
-                console.log('il est authentifier');
+                //console.log('il est authentifier');
                 next();
             }
         })

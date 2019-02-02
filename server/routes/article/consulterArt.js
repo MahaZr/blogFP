@@ -1,8 +1,9 @@
 const router=require('express').Router();
 const article=require('../../models/article');
+const verifytoken= require('./../jwt').verifyToken;
 
 
-router.get('/consulterArt/:idArt', async (req,res)=>{
+router.get('/consulterArt/:idArt', verifytoken,async (req,res)=>{
     try {
         const resultat=await article.findById(req.params.idArt).exec();
         res.send(resultat);
