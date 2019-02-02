@@ -1,6 +1,6 @@
 const router=require('express').Router();
 const Comment = require('../../../models/comment');
-
+const jwt = require('jsonwebtoken');
 router.post('/ajoutComment/:idUser/:idArt', async (req,res)=>{
 
 var  newcoment = new Comment();

@@ -1,10 +1,11 @@
 const router=require('express').Router();
 const user = require('../models/user');
+const jwt = require('jsonwebtoken');
 
 /**
  * @swagger
  *
- * /login/login/:
+ * /auth/login/:
  *   post:
  *     description: liste article by author
  *     produces:
@@ -30,13 +31,20 @@ router.post('/login', async (req,res)=>{
     
     const result = await  user.findOne({ "email": req.body.email }).exec();
     if(result!= null ){
+       
+        
+   
     if (result.validPassword(req.body.password)) {
-        res.send({message : "welcome"});
+
+        jwt.sign({user : result}, 'secretKey',(err,token)=>{
+            res.send({token : token, message : "welcome"});
+        });
+        
       
     } else {
         res.send({message : 'bad pass'});
     }
-}
+} 
 else {
     res.send({message : 'you are not registred, please inscribe to our site'});
 }
