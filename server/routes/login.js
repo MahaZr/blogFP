@@ -37,7 +37,7 @@ router.post('/login', async (req,res)=>{
     if (result.validPassword(req.body.password)) {
 
         jwt.sign({user : result}, 'secretKey',(err,token)=>{
-            res.send({token : token, message : "welcome"});
+            res.send({token : token, message : "welcome", admin : result.admin});
         });
         
       
