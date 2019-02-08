@@ -1,7 +1,7 @@
 const router=require('express').Router();
 const Comment = require('../../../models/comment');
-const verifytoken= require('../../jwt').verifyToken;
-router.post('/ajoutComment/:idUser/:idArt',verifytoken, async (req,res)=>{
+const verifyToken = require('../../jwt').verifyToken;
+router.post('/ajoutComment/:idUser/:idArt',verifyToken, async (req,res)=>{
 
 var  newcoment = new Comment();
 newcoment.IdUser = req.params.idUser;
