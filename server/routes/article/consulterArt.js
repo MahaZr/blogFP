@@ -12,5 +12,5 @@ router.get('/consulterArt/:idArt', verifytoken,async (req,res)=>{
     }
     
 })
-
+ 
 module.exports=router;

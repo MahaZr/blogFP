@@ -1,8 +1,10 @@
 const router=require('express').Router();
 const comments = require('../../../models/comment');
 const users = require('../../../models/user');
+const verifytoken= require('../../jwt').verifyToken;
 
-router.get('/deletecomment/:idcomment/:idUser', async (req,res)=>{
+
+router.get('/deletecomment/:idcomment/:idUser',verifytoken, async (req,res)=>{
    try{
        var user = await users.findById(req.params.idUser).exec();
    } catch (error) {

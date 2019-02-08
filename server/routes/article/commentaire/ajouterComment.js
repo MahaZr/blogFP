@@ -15,7 +15,7 @@ newcoment.save(function(err, savedUser){
     }
     else{
 
-    return res.status(200).send('you have successufuly add a new comment');
+    return res.status(200).send({message :'you have successufuly add a new comment'});
 } });     
 })
 module.exports = router ;
