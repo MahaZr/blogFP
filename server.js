@@ -63,7 +63,6 @@ app.use('/article',updateComment)
 app.use('/article',deleteComment)
 app.use('/article',listerComment)
 app.use('/api-docs',swagger)
-app.use(express.static(__dirname, 'public'));
 
 
 
