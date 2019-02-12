@@ -16,7 +16,7 @@ router.get('/deletecomment/:idcomment/:idUser',verifytoken, async (req,res)=>{
        res.send('bad id comment');
 
    }
-
+ 
    if(user.admin || (coment.IdUser == req.params.idUser)){
 
     const resu = await comments.deleteOne({_id : req.params.idcomment});
