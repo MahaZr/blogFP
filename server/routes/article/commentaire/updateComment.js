@@ -1,8 +1,10 @@
 const router = require('express').Router();
 const users = require('../../../models/user');
 const comments = require('../../../models/comment');
+const verifytoken= require('../../jwt').verifyToken;
 
-router.post('/UpdateComment/:idUser/:idcomment', async (req, res) => {
+
+router.post('/UpdateComment/:idUser/:idcomment',verifyToken, async (req, res) => {
     try {
         var user = await users.findById(req.params.idUser).exec();
     } catch (error) {

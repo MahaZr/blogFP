@@ -1,7 +1,7 @@
 const router=require('express').Router();
 const Comment = require('../../../models/comment');
-const jwt = require('jsonwebtoken');
-router.post('/ajoutComment/:idUser/:idArt', async (req,res)=>{
+const verifyToken = require('../../jwt').verifyToken;
+router.post('/ajoutComment/:idUser/:idArt',verifyToken, async (req,res)=>{
 
 var  newcoment = new Comment();
 newcoment.IdUser = req.params.idUser;
@@ -15,7 +15,7 @@ newcoment.save(function(err, savedUser){
     }
     else{
 
-    return res.status(200).send('you have successufuly add a new comment');
+    return res.status(200).send({message :'you have successufuly add a new comment'});
 } });     
 })
 module.exports = router ;

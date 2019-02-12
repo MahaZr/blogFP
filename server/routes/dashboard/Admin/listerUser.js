@@ -2,6 +2,7 @@
 
 const router = require('express').Router();
 const Users = require('../../../models/user');
+const verifyToken = require('../../jwt.js').verifyToken;
 
 /**
  * @swagger
@@ -23,7 +24,7 @@ const Users = require('../../../models/user');
  *       200:
  *         description: les liste des utilisateur inscrit
  */
-router.get('/listerUser/:idUser', async (req, res) => {
+router.get('/listerUser/:idUser',verifyToken, async (req, res) => {
     try {
         var utilisateur = await Users.findById(req.params.idUser);
     } catch (error) {
