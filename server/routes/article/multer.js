@@ -1,25 +1,36 @@
 const router = require('express').Router();
 const multer = require('multer');
+const parser = require('body-parser');
 const path = require('path');
-router.post('/multer', upload.single('avatar'), (req, res) => {
-    if (!req.file) {
-        console.log("No file received");
-        return res.send({
-            success: false
-        });
+var fs = require('fs');
 
-    } else {
-        console.log('file received');
-        return res.send({
-            success: true
-        })
+const article = require('../../models/article')
+
+
+var storage = multer.diskStorage({
+    destination: (req, file, next) => {
+        next(null, './server/upload')
+    },
+    filename: (req, file, next) => {
+        const ext = file.mimetype.split('/')[1];
+        next(null, file.originalname + '.' + ext)
     }
-
-
 });
+var upload = multer({ storage })
 
-const host = req.host;
-const path = req.protocol + "://" + host + '/' + req.file.path;
+router.post('/imgUpload', upload.single('image'), async (req, res) => {
+    console.log('file received');
+    if (!req.file) {
+        res.send({ 'message': 'No file received' });
+    } else {
+        img = req.file.originalname;
+        console.log(img);
+        var result;
+        req.body.image = req.file.originalname;
+        result = await article.create(req.body)
+        res.send({ 'message': 'File uploaded successfully', data: result });
+    }
+});
 
 
 

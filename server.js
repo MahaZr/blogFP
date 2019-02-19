@@ -2,6 +2,7 @@ const express = require('express')
 const mongoose = require('mongoose')
 const bodyparser = require('body-parser')
 const cors=require('cors')
+const multer =require('multer')
 mongoose.connect('mongodb://localhost:27017/blogDb',{ useNewUrlParser: true })
 const app = express()
 ///////////////////////////////////////////////////
@@ -25,7 +26,6 @@ app.use(cors());
 
 
 
-
 app.use(bodyparser.json())
 
 const auth = require('./server/routes/auth')
@@ -45,6 +45,8 @@ const listerArticles = require ('./server/routes/article/listerArticles')
 const suprimerArt = require ('./server/routes/article/suprimerArt')
 const updateArt = require ('./server/routes/article/updateArt')
 const swagger = require('./server/routes/swagger')
+const mult=require('./server/routes/article/multer')
+const affiche=require('./server/routes/article/afficherImage')
 
 
 app.use('/auth',login )
@@ -63,6 +65,9 @@ app.use('/article',updateComment)
 app.use('/article',deleteComment)
 app.use('/article',listerComment)
 app.use('/api-docs',swagger)
+app.use('/api-img',mult)
+app.use('/image',affiche)
+
 
 
 
