@@ -7,6 +7,7 @@ var  newcoment = new Comment();
 newcoment.IdUser = req.params.idUser;
 newcoment.IDArticle = req.params.idArt;
 newcoment.corps = req.body.corps;
+newcoment.Username =req.body.userName;
 
 newcoment.save(function(err, savedUser){
     if (err) {

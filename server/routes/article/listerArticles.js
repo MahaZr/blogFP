@@ -7,7 +7,7 @@ router.get('/listerArts/:idAut', async (req, res) => {
     const idaut = req.params.idAut;
     var resultat;
     if (idaut == 'all') {
-        resultat = await article.find().exec();
+        resultat = await article.find().sort({date:-1}).exec();
         console.log(resultat);
         res.send(resultat);
     } else {
